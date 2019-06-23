@@ -1,0 +1,14 @@
+while [ $# -gt 0 ];do
+	case $1 in
+		-s)set=0;shift
+	esac
+done
+	
+for f in *.jpg;do
+	srcfile=`basename $f jpg`tif 
+	if [ $set ];then
+		exiftool -tagsfromFile ../tif/$srcfile $f
+	else
+		echo exiftool -tagsfromFile ../tif/$srcfile $f
+	fi
+done
